@@ -4,3 +4,26 @@ body {
     margin: 0;
     font-family: 'PT Sans', sans-serif;
 }
+
+.bold {
+    font-weight: bold;
+}
+
+/* === COLORS === */
+
+.blue {
+    color: rgb(102, 115, 180);
+}
+
+.deepblue {
+    color: rgb(30, 49, 144);
+}
+.backgroundLightblue {
+    background-color: rgb(244, 243, 251);
+}
+
+
+.backgroundDarkblue {
+    background-color: rgb(30, 49, 144);
+}
+
