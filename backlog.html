@@ -20,7 +20,25 @@
 </head>
 
 <body onload="includeHTML()">
-    <div w3-include-html="template.html"></div>
+
+
+    <div class="body">
+        <!-- === MENU === -->
+        <div w3-include-html="template.html"></div>
+        <!-- === MENU-END ===-->
+        <div class="backlog-container">
+            <h2>Backlog</h2>
+            <p class="blue">Learning Management System Project</p>
+            <div class="headlines deepblue">
+                <h3>ASSIGNED TO</h3>
+                <h3 id="category">CATEGORY</h3>
+                <h3></h3>
+                <h3>DETAILS</h3>
+            </div>
+            <div id="tasks"></div>
+
+        </div>
+    </div>
 
 </body>
 

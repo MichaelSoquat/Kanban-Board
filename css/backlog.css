@@ -1,0 +1,28 @@
+/* === GENERAL === */
+
+.body {
+    display: flex;
+}
+
+/* === BACKLOG-CONTAINER === */
+
+.backlog-container {
+    margin: 0;
+    padding: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+    min-width: 75%;
+}
+
+.backlog-container p {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.headlines {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
