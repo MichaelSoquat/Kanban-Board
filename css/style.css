@@ -9,6 +9,7 @@ body {
     font-weight: bold;
 }
 
+
 /* === COLORS === */
 
 .blue {
@@ -18,12 +19,86 @@ body {
 .deepblue {
     color: rgb(30, 49, 144);
 }
+
 .bg-lightblue {
     background-color: rgb(244, 243, 251);
 }
-
 
 .bg-darkblue {
     background-color: rgb(30, 49, 144);
 }
 
+
+/* === MENU TEMPLATE === */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.join-logo {
+    padding: 2rem;
+}
+
+.logo-box {
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+}
+
+.menu-link {
+    text-decoration: none;
+    border-left: 3px solid rgb(30, 49, 144);
+    color: rgb(211, 211, 211);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 20%;
+}
+
+.menu-link:hover {
+    color: white;
+    border-left: 3px solid white;
+    cursor: pointer;
+}
+
+.menu-bottom-section {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-img {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 100%;
+    background-color: antiquewhite;
+    margin: 2rem;
+}
+
+
+/* === FOOTER TEMPLATE === */
+
+.footer {
+    height: 100px;
+    width: 100%;
+    background-color: rgb(30, 49, 144);
+    border-top: 4px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-link:hover {
+    cursor: pointer;
+}

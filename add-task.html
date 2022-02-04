@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+    <link rel="stylesheet" href="./css/add-to.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/main.js"></script>
+</head>
+
+<body onload="includeHTML()">
+    <div class="main-div">
+        <div w3-include-html="template.html" class="menu-template"></div>
+        <div class="content-area">
+            <h1>Add Task</h1>
+            <p>Learning Management System Project</p>
+            <form action="#" class="form">
+                <div class="form-section-left">
+                    <label>TITLE</label>
+                    <input required type="text" id="titleInput" name="title">
+                    <label>CATEGORY</label>
+                    <input required id="categoryInput" name="category" list="category">
+                    <datalist id="category">
+                        <option value="Management">
+                        <option value="Marketing">
+                        <option value="IT">
+                        <option value="Production">
+                        <option value="Finance">
+                        <option value="Logistics">
+                        <option value="Sales">
+                    </datalist>
+                    <label for="description">DESCRIPTION</label>
+                    <textarea required name="description" id="descriptionInput" cols="30" rows="7"></textarea>
+                </div>
+                <div class="form-section-right">
+                    <label>DATE</label>
+                    <input required type="date" name="begin" placeholder="dd-mm-yyyy" id="dateInput">
+                    <label>URGENCY</label>
+                    <input required list="urgency" name="urgency" id="urgencyInput">
+                    <datalist id="urgency">
+                      <option value="High">
+                      <option value="Medium">
+                      <option value="Low">
+                    </datalist>
+                    <label>ASSIGNED TO</label>
+                    <div class="employes-section">
+                        <img src="./img/daniel.jpg" class="employes-section-img">
+                        <img src="./icons/icon plus.png" class="employes-section-plus-btn" alt="">
+                    </div>
+                    <div class="form-btn-section">
+                        <div><button class="cancel-btn">CANCEL</button></div>
+                        <div><button type="submit" class="create-task-btn">CREATE TASK</button></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div w3-include-html="template-footer.html"></div>
+
+</body>
+
+</html>
