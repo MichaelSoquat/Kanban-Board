@@ -18,12 +18,12 @@ body {
 .deepblue {
     color: rgb(30, 49, 144);
 }
-.backgroundLightblue {
+.bg-lightblue {
     background-color: rgb(244, 243, 251);
 }
 
 
-.backgroundDarkblue {
+.bg-darkblue {
     background-color: rgb(30, 49, 144);
 }
 
