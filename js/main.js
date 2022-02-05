@@ -30,4 +30,28 @@ function includeHTML() {
             return;
         }
     }
-}
+};
+
+/**
+ * ######################################################################
+ * smallestBackendEver
+ */
+setURL('http://gruppe-176.developerakademie.net/smallest_backend_ever');
+
+/**
+ * This function is used to save the tasks to server.
+ */
+
+async function saveTasks() {
+    // users.push('John');
+    await backend.setItem('tasks', JSON.stringify(tasks));
+};
+
+/**
+* This function is used to load the tasks from server.
+*/
+
+async function loadTasks() {
+    await downloadFromServer();
+    tasks = JSON.parse(backend.getItem('tasks')) || [];
+};
