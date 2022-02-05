@@ -1,3 +1,4 @@
+
 /**
  * This function is used to add the html templates
  * For Documentation look at >>> https://www.w3schools.com/howto/howto_html_include.asp

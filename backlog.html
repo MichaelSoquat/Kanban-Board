@@ -13,20 +13,20 @@
     <script src="js/mini_backend.js"></script>
     <script src="js/main.js"></script>
     <script src="js/backlog.js"></script>
-    
-    
+
+
     <!-- === GOOGLE FONTS === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(), init()">
 
 
     <div class="body">
         <!-- === MENU === -->
-        <div w3-include-html="template.html"></div>
+        <div w3-include-html="./templates/template.html" class="menu-template"></div>
         <!-- === MENU-END ===-->
         <div class="backlog-container">
             <h2>Backlog</h2>
@@ -41,7 +41,7 @@
 
         </div>
     </div>
-
+    <div w3-include-html="./templates/template-footer.html"></div>
 </body>
 
 </html>
