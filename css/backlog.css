@@ -4,16 +4,17 @@
     display: flex;
 }
 
-/* === BACKLOG-CONTAINER === */
+/* === BACKLOG-HEADER === */
 
 .backlog-container {
     margin-left: 5%;
     margin-right: 5%;
     display: flex;
     flex-direction: column;
+    min-width: 75%;
 }
 
-.backlog-container p {
+.backlog-container>p {
     font-size: 12px;
     margin-top: 4px;
 }
@@ -21,4 +22,87 @@
 .headlines {
     display: flex;
     justify-content: space-between;
+}
+
+/* === TASKS IN BACKLOG === */
+
+.backlog-task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    border-left: 16px solid orange;
+    font-size: 24px;
+
+}
+
+.backlog-task:hover {
+    cursor: pointer;
+}
+
+
+/* === USER-IMG === */
+
+.seperate-img-user {
+    display: flex;
+}
+
+.center-img {
+    display: flex;
+    align-items: center;
+}
+.user-img {
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+/* === NAME AND E-MAIL === */
+
+.structure-assignment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* === CATEGORY === */
+
+.move-category-to-center {
+    padding-right: 60px;
+    padding-left: 60px;
+    display: flex;
+    align-items: center;
+}
+
+/* === DESCRIPTION === */
+
+.description-container {
+    padding-right: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.description-container p {
+    font-size: 24px;
+    text-align: justify;
+}
+
+/* === DETAILS === */
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.icons {
+    border: 1px solid black;
+    padding: 4px;
+    margin: 4px;
+    border-radius: 12px;
+    max-width: 30px;
+    max-height: 30px;
 }
