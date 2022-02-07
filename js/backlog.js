@@ -62,7 +62,6 @@ function checkStatus() {
 
 function showInBacklog(backlog) {
     let taskGenerate = document.getElementById('tasks');
-    taskGenerate.innerHTML = '';
     if (backlog.length == 0) {
         taskGenerate.innerHTML = showHelpText();
     } else {
