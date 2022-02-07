@@ -1,31 +1,41 @@
-let newTask = {
-    'status': 'backlog',
-    'title': '...',
-    'date': '2022-02-05',
-    'category': 'Management',
-    'urgency': 'low',
-    'description': 'Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. ',
-    'assignedTo': 'Michael',
-    'name': 'Michael',
-    'img': './img/Soquat.jpg',
-    'name': 'Michael Soquat',
-    'email': 'michael.soquat@gmx.de'
-}
+let statusBacklog = 'backlog';
+let backlog = [];
 
-let statusBacklog = [];
 /**
 * This function is used to wait for loading the tasks from server.
 */
 
 async function init() {
-    await loadTasks();
-    testWorkingBackend();
+
+    
+    
+    await testWorkingBackend();
+    // await loadTasks();
+    // tasks.splice(0, 1);               //only for testing!!!
+    // saveTasks();
     checkStatus();
 }
 
 
 // test
-function testWorkingBackend() {
+async function testWorkingBackend() {
+    await loadTasks();
+    let id=tasks.length;
+    
+    let newTask = {
+        'id': id,
+        'status': 'backlog',
+        'title': '...',
+        'date': '2022-02-05',
+        'category': 'Management',
+        'urgency': 'low',
+        'description': 'Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. ',
+        'assignedTo': 'Michael',
+        'name': 'Michael',
+        'img': './img/Soquat.jpg',
+        'name': 'Michael Soquat',
+        'email': 'michael.soquat@gmx.de'
+    };
     console.log(newTask);
     tasks.push(newTask);
 };
@@ -35,10 +45,12 @@ function testWorkingBackend() {
  * This function is used to check if status is 'backlog'.
  */
 function checkStatus() {
+    backlog = [];
     if (tasks.length != 0) {
-        statusBacklog = tasks.filter((task) => task.status === 'backlog');
+        backlog = tasks.filter((task) => task.status == statusBacklog);
     }
-    showInBacklog();
+    showInBacklog(backlog);
+
 };
 
 /**
@@ -48,12 +60,13 @@ function checkStatus() {
  * 
  */
 
-function showInBacklog() {
+function showInBacklog(backlog) {
     let taskGenerate = document.getElementById('tasks');
-    if (statusBacklog.length == 0) {
+    taskGenerate.innerHTML = '';
+    if (backlog.length == 0) {
         taskGenerate.innerHTML = showHelpText();
     } else {
-        for (i = 0; i < statusBacklog.length; i++) {
+        for (i = 0; i < backlog.length; i++) {
             document.getElementById('tasks').innerHTML += showTasksInBacklog();
         }
     }
@@ -76,12 +89,43 @@ function showHelpText() {
  */
 
 function showTasksInBacklog() {
+    
     return `
     <div id="task${i}" class="backlog-task bg-lightblue">
-    <div class="seperate-img-user"><div class="center-img"><img class="user-img" src="${statusBacklog[i]['img']}"></div>
-    <div class ="structure-assignment"><span>${statusBacklog[i]['name']}</span><span>${statusBacklog[i]['email']}</span></div>
-    <div  class="move-category-to-center">${statusBacklog[i]['category']}</div></div> 
-    <div class="description-container"><p>${statusBacklog[i]['description']}</p></div>
-    <div class="icon-container"> <img class="icons" src ="./icons/plus-8-48.png"> 
-    <img class="icons" src ="./icons/delete-48.png"></div></div> `;
+    <div class="seperate-img-user"><div class="center-img"><img class="user-img" src="${backlog[i]['img']}"></div>
+    <div class ="structure-assignment"><span>${backlog[i]['name']}</span><span>${backlog[i]['email']}</span></div>
+    <div  class="move-category-to-center">${backlog[i]['category']}</div></div> 
+    <div class="description-container"><p>${backlog[i]['description']}</p></div>
+    <div class="icon-container"> <img onclick="addTaskToTodo(${backlog[i]['id']})" class="icons" src ="./icons/plus-8-48.png"> 
+    <img onclick="deleteTaskFromJson(${backlog[i]['id']})" class="icons" src ="./icons/delete-48.png"></div></div> `;
+};
+
+/**
+ * This function is adding the task to the Todo-Board.
+ */
+
+function addTaskToTodo(id) {
+    document.getElementById('tasks').innerHTML = ``;
+    for (i = 0; i < tasks.length; i++) {
+        if (tasks[i]['id'] == id) {
+            tasks[i]['status'] = 'todo';
+        }
+    }
+    saveTasks();
+    checkStatus();
+};
+
+/**
+ * This function is deleting the task from Backlog.
+ */
+
+function deleteTaskFromJson(id) {
+    document.getElementById('tasks').innerHTML = ``;
+    for (i = 0; i < tasks.length; i++) {
+        if (tasks[i]['id'] == id) {
+            tasks.splice(i, 1);
+        }
+    }
+    saveTasks();
+    checkStatus();
 };
