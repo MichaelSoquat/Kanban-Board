@@ -9,6 +9,10 @@ body {
     font-weight: bold;
 }
 
+.d-none {
+    display: none;
+}
+
 
 /* === COLORS === */
 
