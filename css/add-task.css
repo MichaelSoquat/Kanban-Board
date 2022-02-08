@@ -69,29 +69,54 @@ textarea:focus {
     outline: none;
 }
 
-.employes-section {
+.employees-section {
     display: flex;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
-.employes-section-img {
+.employees-section-img {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 100%;
     background-color: antiquewhite;
 }
 
-.employes-section-plus-btn {
+.employees-section-plus-btn {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 100%;
     margin-left: 1rem;
 }
 
-.employes-section-plus-btn:hover {
+.employees-section-plus-btn:hover {
     cursor: pointer;
     opacity: 0.7;
+}
+
+.choose-employee {
+    position: absolute;
+    left: 70%;
+    background-color: white;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+}
+
+.employee {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+.employee:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    background-color: rgb(102, 115, 180);
+}
+
+.employee-name {
+    padding: 0.5rem;
+    font-size: 1rem;
 }
 
 .form-btn-section {

@@ -12,6 +12,7 @@
     <!-- === SCRIPTS === -->
     <script src="./js/add-task.js"></script>
     <script src="js/mini_backend.js"></script>
+    <script src="./js/backlog.js"></script>
     <script src="./js/main.js"></script>
 </head>
 
@@ -25,12 +26,13 @@
         <div class="content-area">
             <h1>Add Task</h1>
             <p>Learning Management System Project</p>
-            <form action="#" class="form">
+
+            <form class="form" onsubmit="setNewTask()">
                 <div class="form-section-left">
                     <label>TITLE</label>
-                    <input required type="text" id="titleInput" name="title">
+                    <input type="text" id="titleInput">
                     <label>CATEGORY</label>
-                    <input required id="categoryInput" name="category" list="category">
+                    <input id="categoryInput" list="category">
                     <datalist id="category">
                         <option value="Management">
                         <option value="Marketing">
@@ -41,25 +43,42 @@
                         <option value="Sales">
                     </datalist>
                     <label for="description">DESCRIPTION</label>
-                    <textarea required name="description" id="descriptionInput" cols="30" rows="7"></textarea>
+                    <textarea name="description" id="descriptionInput" cols="30" rows="7"></textarea>
                 </div>
                 <div class="form-section-right">
                     <label>DATE</label>
-                    <input required type="date" name="begin" placeholder="dd-mm-yyyy" id="dateInput">
+                    <input type="date" placeholder="dd-mm-yyyy" id="dateInput">
                     <label>URGENCY</label>
-                    <input required list="urgency" name="urgency" id="urgencyInput">
+                    <input list="urgency" id="urgencyInput">
                     <datalist id="urgency">
                       <option value="High">
                       <option value="Medium">
                       <option value="Low">
                     </datalist>
+
                     <label>ASSIGNED TO</label>
-                    <div class="employes-section">
-                        <img src="./img/daniel.jpg" class="employes-section-img">
-                        <img src="./icons/icon plus.png" class="employes-section-plus-btn" alt="">
+                    <div class="employees-section">
+                        <img src="./img/faviconblau.ico" id="choosenEmployee" class="employees-section-img">
+                        <img src="./icons/icon plus.png" class="employees-section-plus-btn" onclick="showEmpleyees()">
+
+                        <div class="choose-employee d-none" id="chooseEmployee">
+                            <div class="employee" onclick="setEmployee('./img/daniel.jpg', 'Daniel Johannsen', 'daniel-johannsen@web.de')">
+                                <img src="./img/daniel.jpg" class="employees-section-img">
+                                <div class="employee-name">Daniel Johannsen</div>
+                            </div>
+                            <div class="employee" onclick="setEmployee('./img/Soquat.jpg', 'Michael Soquat', 'michael.soquat@gmx.de')">
+                                <img src="./img/Soquat.jpg" class="employees-section-img">
+                                <div class="employee-name">Michael Soquat</div>
+                            </div>
+                            <div class="employee" onclick="setEmployee('./img/faviconblau.ico', 'Rinat Madreiter', 'rinat.madreiter@gmx.de')">
+                                <img src="./img/faviconblau.ico" class="employees-section-img">
+                                <div class="employee-name">Rinat Madreiter</div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="form-btn-section">
-                        <div><button class="cancel-btn">CANCEL</button></div>
+                        <div><button class="cancel-btn" onclick="clearInput()">CANCEL</button></div>
                         <div><button type="submit" class="create-task-btn">CREATE TASK</button></div>
                     </div>
                 </div>
