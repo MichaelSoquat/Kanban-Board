@@ -1,5 +1,6 @@
 let statusBacklog = 'backlog';
 let backlog = [];
+let tasks = [];
 
 /**
 * This function is used to wait for loading the tasks from server.
