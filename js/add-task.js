@@ -37,23 +37,28 @@ function setNewTask() {
         'category': category.value,
         'urgency': urgency.value,
         'description': description.value,
-        'assignedTo': [{
+        'assignedTo': {
             'img': employeeImg,
             'name': employeeName,
             'email': employeeEmail
-        }]
+        }
     };
     console.log(newTask);
-
     newTaskTest.push(newTask);
-    //console.log(newTaskTest);
-    //clearInput();
+    console.log(newTaskTest);
+    clearInput();
 }
 
 /**
  * This function is used to clear all the input fields.
  */
 function clearInput() {
+    let title = document.getElementById('titleInput');
+    let category = document.getElementById('categoryInput');
+    let description = document.getElementById('descriptionInput');
+    let date = document.getElementById('dateInput');
+    let urgency = document.getElementById('urgencyInput');
+
     title.value = '';
     date.value = '';
     category.value = '';
