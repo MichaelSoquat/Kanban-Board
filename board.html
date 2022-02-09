@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,28 @@
     <link rel="icon" type="image/x-icon" href="./img/faviconblau.ico">
     <link rel="stylesheet" href="./css/board.css">
     <script src="./js/board.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/mini_backend.js"></script>
+    <script src="./js/backlog.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/board.css">
+
     <title>Join Board</title>
 </head>
-<body>
+
+<body onload="includeHTML()">
+
+
+    <div class="main-div">
+
+         <!-- === MENU ===-->
+         <div w3-include-html="./templates/template.html" class="menu-template"></div>
+         <!-- === MENU-END ===-->
+
+        <h1>board</h1> 
+    </div>
     <h1>board</h1>
+
 </body>
+
 </html>
