@@ -22,14 +22,28 @@
 
     <div class="main-div">
 
-         <!-- === MENU ===-->
-         <div w3-include-html="./templates/template.html" class="menu-template"></div>
-         <!-- === MENU-END ===-->
+        <!-- === MENU ===-->
+        <div w3-include-html="./templates/template.html" class="menu-template"></div>
+        <!-- === MENU-END ===-->
 
-        <h1>board</h1> 
+        <div class="column">
+            <h1>To Do</h1>
+        </div>
+        <div class="column">
+            <h1>In Progress</h1>
+        </div>
+        <div class="column">
+            <h1>Testing</h1>
+        </div>
+        <div class="column">
+            <h1>Done</h1>
+        </div>
+
     </div>
-    <h1>board</h1>
-
+    
+    <!-- === FOOTER ===-->
+    <div w3-include-html="./templates/template-footer.html"></div>
+    <!-- === FOOTER-END ===-->
 </body>
 
 </html>
