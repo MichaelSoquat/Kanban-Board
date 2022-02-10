@@ -1,7 +1,19 @@
 .boad-div {
-flex: 1;
+    flex: 1;
 }
 
 .column {
-    width: 22,5%;
+    width: 20%;
+    text-align: center;
+}
+
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#allTasks {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }

@@ -17,7 +17,7 @@
     <title>Join Board</title>
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(); updateHTML()">
 
 
     <div class="main-div">
@@ -26,21 +26,26 @@
         <div w3-include-html="./templates/template.html" class="menu-template"></div>
         <!-- === MENU-END ===-->
 
-        <div class="column">
-            <h1>To Do</h1>
+        <div id="allTasks">
+            <div class="column">
+                <h1>To Do</h1>
+                <div class="tasks-container" id="toDo"></div>
+            </div>
+            <div class="column">
+                <h1>Do Today</h1>
+                <div class="tasks-container" id="doToday"></div>
+            </div>
+            <div class="column">
+                <h1>Testing</h1>
+                <div class="tasks-container" id="testing"></div>
+            </div>
+            <div class="column">
+                <h1>Done</h1>
+                <div class="tasks-container" id="done"></div>
+            </div>
         </div>
-        <div class="column">
-            <h1>In Progress</h1>
-        </div>
-        <div class="column">
-            <h1>Testing</h1>
-        </div>
-        <div class="column">
-            <h1>Done</h1>
-        </div>
-
     </div>
-    
+
     <!-- === FOOTER ===-->
     <div w3-include-html="./templates/template-footer.html"></div>
     <!-- === FOOTER-END ===-->
