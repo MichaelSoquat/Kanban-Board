@@ -2,7 +2,7 @@ let todos = [{
     'id': 0,
     'title': 'Programmieren',
     'category': 'Studium',
-    'status': 'todo'
+    'status': 'toDo'
 },{
     'id': 1,
     'title': 'Lesen',
@@ -28,7 +28,7 @@ console.log(todos[1]) */
 
 
 function updateHTML() {
-    let clearAllTasks = () => {document.getElementsByClassName('tasks-container').innerHTML = '' }
+    let clearAllTasks = () => {document.getElementsByClassName('tasks').innerHTML = ''};
     filterGenerateTodoHTML();
     filterGenerateDoTodayHTML();
     filterGenerateTestingHTML();
@@ -37,7 +37,8 @@ function updateHTML() {
 
 
 function filterGenerateTodoHTML() {
-    let toDo = todos.filter(t => t['status'] == 'todo');
+    let toDo = todos.filter(t => t['status'] == 'toDo');
+    document.getElementById('toDo').innerHTML = '';
     for (let index = 0; index < toDo.length; index++) {
         let element = toDo[index];
         document.getElementById('toDo').innerHTML += generateTasksHTML(element);
@@ -47,6 +48,7 @@ function filterGenerateTodoHTML() {
 
 function filterGenerateDoTodayHTML() {
     let doToday = todos.filter(t => t['status'] == 'doToday');
+    document.getElementById('doToday').innerHTML = '';
     for (let index = 0; index < doToday.length; index++) {
         let element = doToday[index];
         document.getElementById('doToday').innerHTML += generateTasksHTML(element);
@@ -56,6 +58,7 @@ function filterGenerateDoTodayHTML() {
 
 function filterGenerateTestingHTML() {
     let testing = todos.filter(t => t['status'] == 'testing');
+    document.getElementById('testing').innerHTML = '';
     for (let index = 0; index < testing.length; index++) {
         let element = testing[index];
         document.getElementById('testing').innerHTML += generateTasksHTML(element);
@@ -65,6 +68,7 @@ function filterGenerateTestingHTML() {
 
 function filterGenerateDoneHTML() {
     let done = todos.filter(t => t['status'] == 'done');
+    document.getElementById('done').innerHTML = '';
     for (let index = 0; index < done.length; index++) {
         let element = done[index];
         document.getElementById('done').innerHTML += generateTasksHTML(element);
