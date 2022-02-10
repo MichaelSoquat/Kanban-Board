@@ -29,19 +29,19 @@
         <div id="allTasks">
             <div class="column">
                 <h1>To Do</h1>
-                <div class="tasks-container" id="toDo"></div>
+                <div class="tasks-container" id="toDo" ondrop="moveTo('toDo')" ondragover="allowDrop(event)"></div>
             </div>
             <div class="column">
                 <h1>Do Today</h1>
-                <div class="tasks-container" id="doToday"></div>
+                <div class="tasks-container" id="doToday" ondrop="moveTo('doToday')" ondragover="allowDrop(event)"></div>
             </div>
             <div class="column">
                 <h1>Testing</h1>
-                <div class="tasks-container" id="testing"></div>
+                <div class="tasks-container" id="testing" ondrop="moveTo('testing')" ondragover="allowDrop(event)"></div>
             </div>
             <div class="column">
                 <h1>Done</h1>
-                <div class="tasks-container" id="done"></div>
+                <div class="tasks-container" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
             </div>
         </div>
     </div>

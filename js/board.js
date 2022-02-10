@@ -20,6 +20,9 @@ let todos = [{
     'status': 'done'
 }];
 
+let currentDraggedElement;
+
+
 /* todos
 console.log(todos[1]) */
 
@@ -36,51 +39,59 @@ function updateHTML() {
 function filterGenerateTodoHTML() {
     let toDo = todos.filter(t => t['status'] == 'todo');
     for (let index = 0; index < toDo.length; index++) {
-        let currentTodo = toDo[index];
-        document.getElementById('toDo').innerHTML += generateTodoHTML(currentTodo);
+        let element = toDo[index];
+        document.getElementById('toDo').innerHTML += generateTasksHTML(element);
     }
 }
 
-
-function generateTodoHTML(currentTodo) {
-    return `<div class="tasks"> ${currentTodo['title']}</div>`;
-}
 
 function filterGenerateDoTodayHTML() {
     let doToday = todos.filter(t => t['status'] == 'doToday');
     for (let index = 0; index < doToday.length; index++) {
-        let currentDoToday = doToday[index];
-        document.getElementById('doToday').innerHTML += generateDoTodayHTML(currentDoToday);
+        let element = doToday[index];
+        document.getElementById('doToday').innerHTML += generateTasksHTML(element);
     }
 }
 
-
-function generateDoTodayHTML(currentDoToday) {
-    return `<div class="tasks"> ${currentDoToday['title']}</div>`;
-}
 
 function filterGenerateTestingHTML() {
     let testing = todos.filter(t => t['status'] == 'testing');
     for (let index = 0; index < testing.length; index++) {
-        let currentTesting = testing[index];
-        document.getElementById('testing').innerHTML += generateTestingHTML(currentTesting);
+        let element = testing[index];
+        document.getElementById('testing').innerHTML += generateTasksHTML(element);
     }
 }
 
-
-function generateTestingHTML(currentTesting) {
-    return `<div class="tasks"> ${currentTesting['title']}</div>`;
-}
 
 function filterGenerateDoneHTML() {
     let done = todos.filter(t => t['status'] == 'done');
     for (let index = 0; index < done.length; index++) {
-        let currentDone = done[index];
-        document.getElementById('done').innerHTML += generateDoneHTML(currentDone);
+        let element = done[index];
+        document.getElementById('done').innerHTML += generateTasksHTML(element);
     }
 }
 
 
-function generateDoneHTML(currentDone) {
-    return `<div class="tasks"> ${currentDone['title']}</div>`;
+function generateTasksHTML(element) {
+    return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="tasks"> ${element['title']}</div>`;
 }
+
+function startDragging(id) {
+    currentDraggedElement = id;
+
+}
+
+/**
+ * enables to drop containers on other container
+ * for documentation see >>>> https://www.w3schools.com/html/html5_draganddrop.asp
+ * @param {Event} ev 
+ */
+function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+
+  function moveTo(status) {
+      todos[currentDraggedElement]['status'] = status; // z.B Todo mit id 1: das Feld Status ändert sich zu einem anderen status.
+      updateHTML();
+  }
