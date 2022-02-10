@@ -99,3 +99,11 @@ function allowDrop(ev) {
       todos[currentDraggedElement]['status'] = status; // z.B Todo mit id 1: das Feld Status ändert sich zu einem anderen status.
       updateHTML();
   }
+
+  function highlight(id) {
+      document.getElementById(id).classList.add('drag-area-highlight');
+  }
+
+  function removeHighlight(id) {
+    document.getElementById(id).classList.remove('drag-area-highlight');
+  }
