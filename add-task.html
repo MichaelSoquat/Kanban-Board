@@ -25,7 +25,8 @@
             <h1>Add Task</h1>
             <p>Learning Management System Project</p>
 
-            <form class="form" onsubmit="setNewTask()">
+            <!-- <form class="form" onsubmit="setNewTask()"> -->
+            <div class="form">
                 <div class="form-section-left">
                     <label>TITLE</label>
                     <input type="text" id="titleInput">
@@ -77,10 +78,11 @@
                     </div>
                     <div class="form-btn-section">
                         <div><button class="cancel-btn" onclick="clearInput()">CANCEL</button></div>
-                        <div><button type="submit" class="create-task-btn">CREATE TASK</button></div>
+                        <div><button type="submit" class="create-task-btn" onclick="setNewTask()">CREATE TASK</button></div>
                     </div>
                 </div>
-            </form>
+            </div>
+            <!-- </form> -->
         </div>
     </div>
 

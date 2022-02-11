@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,47 @@
     <link rel="icon" type="image/x-icon" href="./img/faviconblau.ico">
     <link rel="stylesheet" href="./css/board.css">
     <script src="./js/board.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/mini_backend.js"></script>
+    <script src="./js/backlog.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/board.css">
+
     <title>Join Board</title>
 </head>
-<body>
-    <h1>board</h1>
+
+<body onload="includeHTML(); updateHTML()">
+
+
+    <div class="main-div">
+
+        <!-- === MENU ===-->
+        <div w3-include-html="./templates/template.html" class="menu-template"></div>
+        <!-- === MENU-END ===-->
+
+        <div id="allTasks">
+            <div class="column">
+                <h1>To Do</h1>
+                <div class="tasks-container" id="toDo" ondrop="moveTo('toDo'); removeHighlight('toDo')" ondragover="allowDrop(event); highlight('toDo')" ondragleave="removeHighlight('toDo')"></div>
+            </div>
+            <div class="column">
+                <h1>Do Today</h1>
+                <div class="tasks-container" id="doToday" ondrop="moveTo('doToday'); removeHighlight('doToday')" ondragover="allowDrop(event); highlight('doToday')" ondragleave="removeHighlight('doToday')"></div>
+            </div>
+            <div class="column">
+                <h1>Testing</h1>
+                <div class="tasks-container" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')" ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')"></div>
+            </div>
+            <div class="column">
+                <h1>Done</h1>
+                <div class="tasks-container" id="done" ondrop="moveTo('done'); removeHighlight('done'); removeHighlight('done')" ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- === FOOTER ===-->
+    <div w3-include-html="./templates/template-footer.html"></div>
+    <!-- === FOOTER-END ===-->
 </body>
+
 </html>
