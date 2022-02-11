@@ -1,4 +1,4 @@
-let newTaskTest = [];
+let tasks = [];
 let employeeImg;
 let employeeName;
 let employeeEmail;
@@ -11,6 +11,7 @@ let employeeEmail;
  * @param {string} email - This is the email adress of the employee.
  */
 function setEmployee(img, name, email) {
+    
     employeeImg = img;
     employeeName = name;
     employeeEmail = email;
@@ -18,6 +19,15 @@ function setEmployee(img, name, email) {
     document.getElementById('chooseEmployee').classList.toggle('d-none');
 }
 
+function pushDate() {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById('dateInput').value = today;
+}
 
 /** 
  * This function is used to create a JSON with the informatios of the new task.
@@ -37,15 +47,16 @@ function setNewTask() {
         'category': category.value,
         'urgency': urgency.value,
         'description': description.value,
+        'id': new Date().getTime(),
         'assignedTo': {
             'img': employeeImg,
             'name': employeeName,
             'email': employeeEmail
         }
     };
-    console.log(newTask);
-    newTaskTest.push(newTask);
-    console.log(newTaskTest);
+    tasks.push(newTask);
+    saveTasks();
+    console.log(tasks)
     clearInput();
 }
 
