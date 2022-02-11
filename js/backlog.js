@@ -6,17 +6,9 @@ let backlog = [];
 */
 
 function init() {
-
-    
-    
     loadTasksForBacklog();
-    // await loadTasks();
-    // tasks.splice(0, 1);               //only for testing!!!
-    // saveTasks();
 }
 
-
-// test
 async function loadTasksForBacklog() {
     await loadTasks();
     checkStatus();
@@ -26,6 +18,7 @@ async function loadTasksForBacklog() {
 /**
  * This function is used to check if status is 'backlog'.
  */
+
 function checkStatus() {
     if (tasks.length != 0) {
         backlog = tasks.filter((task) => task.status == statusBacklog);
