@@ -4,14 +4,15 @@
     display: flex;
 }
 
+
 /* === BACKLOG-HEADER === */
 
 .backlog-container {
     margin-left: 5%;
     margin-right: 5%;
     display: flex;
+    flex: 1;
     flex-direction: column;
-    min-width: 75%;
 }
 
 .backlog-container>p {
@@ -24,6 +25,7 @@
     justify-content: space-between;
 }
 
+
 /* === TASKS IN BACKLOG === */
 
 .backlog-task {
@@ -34,7 +36,6 @@
     margin-bottom: 16px;
     border-left: 16px solid orange;
     font-size: 24px;
-
 }
 
 .backlog-task:hover {
@@ -52,6 +53,7 @@
     display: flex;
     align-items: center;
 }
+
 .user-img {
     border-radius: 100%;
     height: 50px;
@@ -61,6 +63,7 @@
     margin-left: 16px;
 }
 
+
 /* === NAME AND E-MAIL === */
 
 .structure-assignment {
@@ -68,6 +71,7 @@
     flex-direction: column;
     justify-content: center;
 }
+
 
 /* === CATEGORY === */
 
@@ -77,6 +81,7 @@
     display: flex;
     align-items: center;
 }
+
 
 /* === DESCRIPTION === */
 
@@ -91,7 +96,9 @@
     text-align: justify;
 }
 
+
 /* === DETAILS === */
+
 .icon-container {
     display: flex;
     flex-direction: column;
