@@ -34,7 +34,7 @@ function includeHTML() {
 };
 
 /**
- * ######################################################################
+ * 
  * smallestBackendEver
  */
 setURL('http://gruppe-176.developerakademie.net/smallest_backend_ever');

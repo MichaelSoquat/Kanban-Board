@@ -5,39 +5,21 @@ let backlog = [];
 * This function is used to wait for loading the tasks from server.
 */
 
-async function init() {
+function init() {
 
     
     
-    await testWorkingBackend();
+    loadTasksForBacklog();
     // await loadTasks();
     // tasks.splice(0, 1);               //only for testing!!!
     // saveTasks();
-    checkStatus();
 }
 
 
 // test
-async function testWorkingBackend() {
+async function loadTasksForBacklog() {
     await loadTasks();
-    let id=tasks.length;
-    
-    let newTask = {
-        'id': id,
-        'status': 'backlog',
-        'title': '...',
-        'date': '2022-02-05',
-        'category': 'Management',
-        'urgency': 'low',
-        'description': 'Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. Hello, this is a Test. ',
-        'assignedTo': 'Michael',
-        'name': 'Michael',
-        'img': './img/Soquat.jpg',
-        'name': 'Michael Soquat',
-        'email': 'michael.soquat@gmx.de'
-    };
-    console.log(newTask);
-    tasks.push(newTask);
+    checkStatus();
 };
 
 
@@ -45,7 +27,6 @@ async function testWorkingBackend() {
  * This function is used to check if status is 'backlog'.
  */
 function checkStatus() {
-    backlog = [];
     if (tasks.length != 0) {
         backlog = tasks.filter((task) => task.status == statusBacklog);
     }
@@ -66,7 +47,7 @@ function showInBacklog(backlog) {
         taskGenerate.innerHTML = showHelpText();
     } else {
         for (i = 0; i < backlog.length; i++) {
-            document.getElementById('tasks').innerHTML += showTasksInBacklog();
+            taskGenerate.innerHTML += showTasksInBacklog();
         }
     }
 };
@@ -91,8 +72,8 @@ function showTasksInBacklog() {
     
     return `
     <div id="task${i}" class="backlog-task bg-lightblue">
-    <div class="seperate-img-user"><div class="center-img"><img class="user-img" src="${backlog[i]['img']}"></div>
-    <div class ="structure-assignment"><span>${backlog[i]['name']}</span><span>${backlog[i]['email']}</span></div>
+    <div class="seperate-img-user"><div class="center-img"><img class="user-img" src="${backlog[i]['assignedTo']['img']}"></div>
+    <div class ="structure-assignment"><span>${backlog[i]['assignedTo']['name']}</span><span>${backlog[i]['assignedTo']['email']}</span></div>
     <div  class="move-category-to-center">${backlog[i]['category']}</div></div> 
     <div class="description-container"><p>${backlog[i]['description']}</p></div>
     <div class="icon-container"> <img onclick="addTaskToTodo(${backlog[i]['id']})" class="icons" src ="./icons/plus-8-48.png"> 
