@@ -1,4 +1,3 @@
-
 /**
  * This function is used to add the html templates
  * For Documentation look at >>> https://www.w3schools.com/howto/howto_html_include.asp
@@ -16,7 +15,7 @@ function includeHTML() {
         if (file) {
             /* Make an HTTP request using the attribute value as the file name: */
             xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
+            xhttp.onreadystatechange = function() {
                 if (this.readyState == 4) {
                     if (this.status == 200) { elmnt.innerHTML = this.responseText; }
                     if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
@@ -49,10 +48,18 @@ async function saveTasks() {
 };
 
 /**
-* This function is used to load the tasks from server.
-*/
+ * This function is used to load the tasks from server.
+ */
 
 async function loadTasks() {
     await downloadFromServer();
     tasks = JSON.parse(backend.getItem('tasks')) || [];
 };
+
+
+/**
+ * This function is used to show the dropdown menu.
+ */
+function dropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
