@@ -2,6 +2,7 @@ let tasks = [];
 let employeeImg;
 let employeeName;
 let employeeEmail;
+let employeeColor;
 
 /**
  * This function is used to set the data from the selecteted employee into the variables.
@@ -10,11 +11,12 @@ let employeeEmail;
  * @param {string} name - This is the name of the employee.
  * @param {string} email - This is the email adress of the employee.
  */
-function setEmployee(img, name, email) {
+function setEmployee(img, name, email, color) {
     
     employeeImg = img;
     employeeName = name;
     employeeEmail = email;
+    employeeColor = color;
     document.getElementById('choosenEmployee').src = img;
     document.getElementById('chooseEmployee').classList.toggle('d-none');
 }
@@ -51,7 +53,8 @@ function setNewTask() {
         'assignedTo': {
             'img': employeeImg,
             'name': employeeName,
-            'email': employeeEmail
+            'email': employeeEmail,
+            'color': employeeColor
         }
     };
     tasks.push(newTask);

@@ -62,9 +62,9 @@ function showHelpText() {
  */
 
 function showTasksInBacklog() {
-    
+
     return `
-    <div id="task${i}" class="backlog-task bg-lightblue">
+    <div id="task${i}" style ="border-left:16px solid ${backlog[i]['assignedTo']['color']}" class="backlog-task bg-lightblue">
     <div class="seperate-img-user"><div class="center-img"><img class="user-img" src="${backlog[i]['assignedTo']['img']}"></div>
     <div class ="structure-assignment"><span>${backlog[i]['assignedTo']['name']}</span><span>${backlog[i]['assignedTo']['email']}</span></div>
     <div  class="move-category-to-center">${backlog[i]['category']}</div></div> 
