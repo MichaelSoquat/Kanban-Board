@@ -12,7 +12,6 @@
 }
 
 .backlog-container>p {
-    
     margin-top: 4px;
 }
 
@@ -22,7 +21,6 @@
 
 .headlines {
     display: flex;
-    
 }
 
 .stand-alone {
@@ -124,4 +122,10 @@
     border-radius: 12px;
     max-width: 30px;
     max-height: 30px;
+}
+
+@media(max-width: 1000px) {
+    .body {
+        flex-direction: column;
+    }
 }
