@@ -22,6 +22,7 @@ h1 {
     margin-top: 0;
 }
 
+
 /* === COLORS === */
 
 .blue {
@@ -135,4 +136,53 @@ nav {
     text-align: center;
     flex: 1;
     padding: 1.5rem;
+}
+
+@media(max-width: 1000px) {
+    .hide-mobile {
+        display: none;
+    }
+    .main-div {
+        display: block;
+    }
+    .menu-template {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 15vh !important;
+        min-height: unset;
+        width: 100%;
+    }
+    .menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 15vh;
+        width: 100%;
+    }
+    .menu-top-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    nav {
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: unset;
+        align-items: center;
+    }
+    .menu-link {
+        margin: 0;
+        padding-left: 1rem;
+        border: unset;
+    }
+    .menu-link:hover {
+        border: unset;
+    }
+}
+
+@media(max-width: 700px) {
+    nav {
+        display: none;
+    }
 }
