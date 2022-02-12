@@ -8,15 +8,11 @@
 /* === BACKLOG-HEADER === */
 
 .backlog-container {
-    margin-left: 5%;
-    margin-right: 5%;
-    display: flex;
-    flex: 1;
     flex-direction: column;
 }
 
 .backlog-container>p {
-    font-size: 12px;
+    
     margin-top: 4px;
 }
 
