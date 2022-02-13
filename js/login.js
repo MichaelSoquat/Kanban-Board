@@ -12,7 +12,9 @@ let users = [{
     }
 ];
 
-
+/**
+ * This function is used to check the login data from the user.
+ */
 function checkLogin() {
     let username = document.getElementById('username');
     let password = document.getElementById('password');
