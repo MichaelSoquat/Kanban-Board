@@ -9,8 +9,10 @@
     <title>Join Kanban Board</title>
     <script src="./js/mini_backend.js"></script>
     <script src="./js/main.js"></script>
-    
+
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/add-task.css">
     <!-- === GOOGLE FONT PT SANS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,9 +21,20 @@
 </head>
 
 <body onload="includeHTML()">
-    <main w3-include-html="./templates/template.html"></main>
+    <!-- <main w3-include-html="./templates/template.html"></main> -->
+    <div class="main-div-log-in bg-darkblue">
+        <img src="icons/joinlogo.png" class="join-logo login-logo hide-mobile">
+        <div class="log-in-box">
+            <h2>LOG IN</h2>
+            <label>USERNAME</label>
+            <input type="text">
+            <label>PASWORD</label>
+            <input type="text">
+            <button class="create-task-btn mt3">LOG IN</button>
+        </div>
+    </div>
 
-    <footer w3-include-html="./templates/template-footer.html"></footer>
+    <!-- <footer w3-include-html="./templates/template-footer.html"></footer> -->
 </body>
 
 </html>
