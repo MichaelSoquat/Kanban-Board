@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./img/faviconblau.ico">
-    <title>Join Kanban Board</title>
+    <title>Join Login</title>
     <script src="./js/mini_backend.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/login.js"></script>
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/login.css">
@@ -27,10 +28,10 @@
         <div class="log-in-box">
             <h2>LOG IN</h2>
             <label>USERNAME</label>
-            <input type="text">
-            <label>PASWORD</label>
-            <input type="text">
-            <button class="create-task-btn mt3">LOG IN</button>
+            <input required type="text" id="username">
+            <label>PASSWORD</label>
+            <input required type="text" id="password">
+            <button class="create-task-btn mt3" onclick="checkLogin()">LOG IN</button>
         </div>
     </div>
 
