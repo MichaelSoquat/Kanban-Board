@@ -177,23 +177,6 @@ nav {
         align-items: center;
     }
     nav {
-        flex-direction: row;
-        justify-content: space-evenly;
-        width: unset;
-        align-items: center;
-    }
-    .menu-link {
-        margin: 0;
-        padding-left: 1rem;
-        border: unset;
-    }
-    .menu-link:hover {
-        border: unset;
-    }
-}
-
-@media(max-width: 852px) {
-    nav {
         display: none;
     }
     /*-Dropdown menu for responsive*/
