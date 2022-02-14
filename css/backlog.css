@@ -128,4 +128,26 @@
     .body {
         flex-direction: column;
     }
+
+    .move-category-to-center {
+        display: none;
+    }
+
+    #category {
+        display: none;
+    }
+
+    .space-category-details {
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+}
+
+@media(max-width: 800px) {
+    .structure-assignment {
+        display: none;
+    }
+    .stand-alone {
+        min-width: 150px;
+    }
 }
