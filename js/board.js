@@ -28,7 +28,7 @@ console.log(todos[1]) */
 
 
 function updateHTML() {
-    let clearAllTasks = () => {document.getElementsByClassName('tasks').innerHTML = ''};
+    // let clearAllTasks = () => {document.getElementsByClassName('tasks').innerHTML = ''};
     filterGenerateTodoHTML();
     filterGenerateDoTodayHTML();
     filterGenerateTestingHTML();
