@@ -2,6 +2,7 @@
 
 .body {
     display: flex;
+    overflow-x: hidden;
 }
 
 
@@ -128,15 +129,12 @@
     .body {
         flex-direction: column;
     }
-
     .move-category-to-center {
         display: none;
     }
-
     #category {
         display: none;
     }
-
     .space-category-details {
         flex-grow: 1;
         justify-content: flex-end;
