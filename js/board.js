@@ -3,29 +3,44 @@ let todos = [{
     'title': 'Programmieren',
     'category': 'Studium',
     'status': 'toDo'
-},{
+}, {
     'id': 1,
     'title': 'Lesen',
     'category': 'Studium',
     'status': 'doToday'
-},{
+}, {
     'id': 2,
     'title': 'Aufräumen',
     'category': 'Home',
     'status': 'testing'
-},{
+}, {
     'id': 3,
     'title': 'Kochen',
     'category': 'Home',
     'status': 'done'
 }];
+let todoTasks = [];
+
 
 let currentDraggedElement;
 
+async function loadTasksForBoard() {
+    await loadTasks();
+    checkStatus();
+}
 
-/* todos
-console.log(todos[1]) */
 
+/**
+ * This function is used to check if status is 'todo'.
+ */
+function checkStatus() {
+    if (tasks.length != 0) {
+        todoTasks = tasks.filter((task) => task.status == 'todo');
+        console.log(todoTasks);
+    } else {
+        console.log('There are no TODO-Tasks');
+    }
+}
 
 function updateHTML() {
     // let clearAllTasks = () => {document.getElementsByClassName('tasks').innerHTML = ''};
@@ -80,10 +95,12 @@ function generateTasksHTML(element) {
     return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="tasks"> ${element['title']}</div>`;
 }
 
+
 function startDragging(id) {
     currentDraggedElement = id;
 
 }
+
 
 /**
  * enables to drop containers on other container
@@ -92,18 +109,20 @@ function startDragging(id) {
  */
 function allowDrop(ev) {
     ev.preventDefault();
-  }
+}
 
 
-  function moveTo(status) {
-      todos[currentDraggedElement]['status'] = status; // z.B Todo mit id 1: das Feld Status ändert sich zu einem anderen status.
-      updateHTML();
-  }
+function moveTo(status) {
+    todos[currentDraggedElement]['status'] = status; // z.B Todo mit id 1: das Feld Status ändert sich zu einem anderen status.
+    updateHTML();
+}
 
-  function highlight(id) {
-      document.getElementById(id).classList.add('drag-area-highlight');
-  }
 
-  function removeHighlight(id) {
+function highlight(id) {
+    document.getElementById(id).classList.add('drag-area-highlight');
+}
+
+
+function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
-  }
+}

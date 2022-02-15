@@ -33,8 +33,9 @@ function includeHTML() {
 };
 
 /**
- * 
  * smallestBackendEver
+ * This function is used to add a simple backend for the tasks
+ * For Documentation look at >>> https://github.com/JunusErgin/smallest_backend_ever 
  */
 setURL('http://gruppe-176.developerakademie.net/smallest_backend_ever');
 
