@@ -12,6 +12,8 @@ let users = [{
     }
 ];
 
+let user = [];
+
 /**
  * This function is used to check the login data from the user.
  */
@@ -24,6 +26,8 @@ function checkLogin() {
 
         if (username.value == element['username'] &&
             password.value == element['password']) {
+            user.push(username.value);
+            saveUser();
             window.open('add-task.html');
         }
         if (username.value != element['username'] &&

@@ -57,10 +57,42 @@ async function loadTasks() {
     tasks = JSON.parse(backend.getItem('tasks')) || [];
 };
 
+/**
+ * This function is used to save the user that has logged in.
+ */
+async function saveUser() {
+    await backend.setItem('user', JSON.stringify(user));
+}
+
+/**
+ * This function is used to load the user from server.
+ */
+
+async function loadUser() {
+    await downloadFromServer();
+    user = JSON.parse(backend.getItem('user')) || [];
+};
 
 /**
  * This function is used to show the dropdown menu.
  */
 function dropdown() {
     document.getElementById("myDropdown").classList.toggle("show");
-}
+};
+
+/**
+ * This function is used to change the image in the menu to the image of the user that has logged in.
+ */
+async function changeImg() {
+    await loadUser();
+    if (user == 'michael-soquat') {
+        document.getElementById('menuImg').src = "./img/Soquat.png";
+    }
+    if (user == 'rinat-madreiter') {
+        document.getElementById('menuImg').src = "./img/rinat.jpg";
+    }
+    if (user == 'daniel-johannsen') {
+        document.getElementById('menuImg').src = "./img/daniel.jpg";
+    }
+    user = [];
+};
