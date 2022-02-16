@@ -3,7 +3,6 @@
  * For Documentation look at >>> https://www.w3schools.com/howto/howto_html_include.asp
  * @returns 
  */
-
 function includeHTML() {
     var z, i, elmnt, file, xhttp;
     /* Loop through a collection of all HTML elements: */
@@ -42,7 +41,6 @@ setURL('http://gruppe-176.developerakademie.net/smallest_backend_ever');
 /**
  * This function is used to save the tasks to server.
  */
-
 async function saveTasks() {
     // users.push('John');
     await backend.setItem('tasks', JSON.stringify(tasks));
@@ -51,7 +49,6 @@ async function saveTasks() {
 /**
  * This function is used to load the tasks from server.
  */
-
 async function loadTasks() {
     await downloadFromServer();
     tasks = JSON.parse(backend.getItem('tasks')) || [];
@@ -67,17 +64,9 @@ async function saveUser() {
 /**
  * This function is used to load the user from server.
  */
-
 async function loadUser() {
     await downloadFromServer();
     user = JSON.parse(backend.getItem('user')) || [];
-};
-
-/**
- * This function is used to show the dropdown menu.
- */
-function dropdown() {
-    document.getElementById("myDropdown").classList.toggle("show");
 };
 
 /**
@@ -95,4 +84,11 @@ async function changeImg() {
         document.getElementById('menuImg').src = "./img/daniel.jpg";
     }
     user = [];
+};
+
+/**
+ * This function is used to show the dropdown menu.
+ */
+function dropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
 };

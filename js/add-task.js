@@ -12,7 +12,7 @@ let employeeColor;
  * @param {string} email - This is the email adress of the employee.
  */
 function setEmployee(img, name, email, color) {
-    
+
     employeeImg = img;
     employeeName = name;
     employeeEmail = email;
@@ -21,6 +21,9 @@ function setEmployee(img, name, email, color) {
     document.getElementById('chooseEmployee').classList.toggle('d-none');
 }
 
+/**
+ * This fuction is used to show the date in the input field.
+ */
 function pushDate() {
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
