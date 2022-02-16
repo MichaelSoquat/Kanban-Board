@@ -23,3 +23,9 @@
 .drag-area-highlight {
     background-color: rgba(0, 0, 0, 0.3);
 }
+
+.tasks {
+    border: 1px solid blue;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}

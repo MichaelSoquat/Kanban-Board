@@ -20,30 +20,33 @@ let todos = [{
     'status': 'done'
 }];
 let todoTasks = [];
+let doTodayTasks = [];
+let testingTasks = [];
+let doneTasks = [];
 
 
 let currentDraggedElement;
 
 async function loadTasksForBoard() {
     await loadTasks();
-    checkStatus();
+    updateHTML();
 }
 
 
 /**
  * This function is used to check if status is 'todo'.
  */
-function checkStatus() {
+/* function checkIfStatusIsTodo() {
     if (tasks.length != 0) {
         todoTasks = tasks.filter((task) => task.status == 'todo');
         console.log(todoTasks);
     } else {
         console.log('There are no TODO-Tasks');
     }
-}
+} */
+
 
 function updateHTML() {
-    // let clearAllTasks = () => {document.getElementsByClassName('tasks').innerHTML = ''};
     filterGenerateTodoHTML();
     filterGenerateDoTodayHTML();
     filterGenerateTestingHTML();
@@ -52,10 +55,10 @@ function updateHTML() {
 
 
 function filterGenerateTodoHTML() {
-    let toDo = todos.filter(t => t['status'] == 'toDo');
+    todoTasks = tasks.filter(t => t['status'] == 'todo');
     document.getElementById('toDo').innerHTML = '';
-    for (let index = 0; index < toDo.length; index++) {
-        let element = toDo[index];
+    for (let index = 0; index < todoTasks.length; index++) {
+        let element = todoTasks[index];
         document.getElementById('toDo').innerHTML += generateTasksHTML(element);
     }
 }
@@ -92,13 +95,17 @@ function filterGenerateDoneHTML() {
 
 
 function generateTasksHTML(element) {
-    return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="tasks"> ${element['title']}</div>`;
+    return `<!--html--> 
+    <div draggable="true" ondragstart="startDragging(${element['id']})" class="tasks">
+        <h3>${element['title']}</h3> 
+        <p>${element['description']}</p>
+        <img class="user-img" src="${element['assignedTo']['img']}">
+    </div>`;
 }
 
 
 function startDragging(id) {
     currentDraggedElement = id;
-
 }
 
 
