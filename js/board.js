@@ -1,4 +1,4 @@
-let todos = [{
+/* let todos = [{
     'id': 0,
     'title': 'Programmieren',
     'category': 'Studium',
@@ -18,11 +18,12 @@ let todos = [{
     'title': 'Kochen',
     'category': 'Home',
     'status': 'done'
-}];
+}]; */
 let todoTasks = [];
-let doTodayTasks = [];
-let testingTasks = [];
-let doneTasks = [];
+let doToday = [];
+let testing = [];
+let done = [];
+let zero = 0;
 
 
 let currentDraggedElement;
@@ -59,13 +60,32 @@ function filterGenerateTodoHTML() {
     document.getElementById('toDo').innerHTML = '';
     for (let index = 0; index < todoTasks.length; index++) {
         let element = todoTasks[index];
+        element["boardId"] = index;
         document.getElementById('toDo').innerHTML += generateTasksHTML(element);
     }
+/*     for (let index = 0; index < tasks.length; index++) {
+        checkBoardStatus(index, 'todo');
+        
+    }  */
 }
 
+/* function checkAgainBoardStatus(status) {
+    if (tasks[zero]['status'] == status) {
+        tasks.shift();
+        console.log('Spliced task after MissingCheck is:' + tasks.length)
+    } 
+}
+
+function checkBoardStatus(index, status) {
+    if (tasks[index]['status'] == status) {
+        tasks.splice(index,1);
+        console.log('Spliced task after BoardStatuschek is:' + tasks.length)
+    }
+    checkAgainBoardStatus(status); 
+}  */
 
 function filterGenerateDoTodayHTML() {
-    let doToday = todos.filter(t => t['status'] == 'doToday');
+    doToday = tasks.filter(t => t['status'] == 'doToday');
     document.getElementById('doToday').innerHTML = '';
     for (let index = 0; index < doToday.length; index++) {
         let element = doToday[index];
@@ -75,7 +95,7 @@ function filterGenerateDoTodayHTML() {
 
 
 function filterGenerateTestingHTML() {
-    let testing = todos.filter(t => t['status'] == 'testing');
+    testing = tasks.filter(t => t['status'] == 'testing');
     document.getElementById('testing').innerHTML = '';
     for (let index = 0; index < testing.length; index++) {
         let element = testing[index];
@@ -85,7 +105,7 @@ function filterGenerateTestingHTML() {
 
 
 function filterGenerateDoneHTML() {
-    let done = todos.filter(t => t['status'] == 'done');
+    done = tasks.filter(t => t['status'] == 'done');
     document.getElementById('done').innerHTML = '';
     for (let index = 0; index < done.length; index++) {
         let element = done[index];
@@ -96,10 +116,10 @@ function filterGenerateDoneHTML() {
 
 function generateTasksHTML(element) {
     return `<!--html--> 
-    <div draggable="true" ondragstart="startDragging(${element['id']})" class="tasks">
+    <div draggable="true" ondragstart="startDragging(${element['boardId']})" class="tasks">
         <h3>${element['title']}</h3> 
         <p>${element['description']}</p>
-        <img class="user-img" src="${element['assignedTo']['img']}">
+        <img class="user-img" src="${element.assignedTo.img}">
     </div>`;
 }
 
@@ -120,8 +140,12 @@ function allowDrop(ev) {
 
 
 function moveTo(status) {
-    todos[currentDraggedElement]['status'] = status; // z.B Todo mit id 1: das Feld Status ändert sich zu einem anderen status.
+    todoTasks[currentDraggedElement]['status'] = status; // z.B Todo mit id 1: das Feld Status ändert sich zu einem anderen status.
     updateHTML();
+}
+
+function saveBoardID() {
+    
 }
 
 
