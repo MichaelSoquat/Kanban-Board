@@ -9,12 +9,11 @@
     <title>Join Help</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/main.js"></script>
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=en&theme=flying&customize=1&tracking=1&thirdparty=1&always=1&showPolicyLink=1&privacyPage=http%3A%2F%2Fgruppe-176.developerakademie.net%2FKanban-Board%2Fprivacy-policy.html"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=en&theme=flying&customize=1&tracking=1&thirdparty=1&always=1&showPolicyLink=1&privacyPage=http%3A%2F%2Fgruppe-176.developerakademie.net%2FKanban-Board%2Fprivacy-policy.html"></script>
 
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(); loadUser(); changeImg()">
     <div class="main-div">
 
         <!-- === MENU ===-->
@@ -23,14 +22,11 @@
         <div class="content-area">
             <h1>Help</h1>
             <h2>ADD-TASK</h2>
-                <p>To create a new task, please give it a title, due date, category, urgency and a description.
-                    At last click on the + button to assign your task to someone.
-                    By clicking on "create task" your task will be created.</p>
-                <h2>BACKLOG</h2>
-                    <p>The backlog shows the created task. If there is no task to show, it shows a help section.</p>
-                    <h2>BOARD</h2>
-                        <p>In the board you can see the tasks that have been added from the backlog. You can simply drag
-                            them into the desired column.</p>
+            <p>To create a new task, please give it a title, due date, category, urgency and a description. At last click on the + button to assign your task to someone. By clicking on "create task" your task will be created.</p>
+            <h2>BACKLOG</h2>
+            <p>The backlog shows the created task. If there is no task to show, it shows a help section.</p>
+            <h2>BOARD</h2>
+            <p>In the board you can see the tasks that have been added from the backlog. You can simply drag them into the desired column.</p>
         </div>
     </div>
 </body>

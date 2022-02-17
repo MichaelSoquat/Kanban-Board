@@ -1,3 +1,5 @@
+let currentUser;
+
 /**
  * This function is used to add the html templates
  * For Documentation look at >>> https://www.w3schools.com/howto/howto_html_include.asp
@@ -74,16 +76,16 @@ async function loadUser() {
  */
 async function changeImg() {
     await loadUser();
-    if (user == 'michael-soquat') {
+    currentUser = user[user.length - 1];
+    if (currentUser == 'michael-soquat') {
         document.getElementById('menuImg').src = "./img/Soquat.png";
     }
-    if (user == 'rinat-madreiter') {
+    if (currentUser == 'rinat-madreiter') {
         document.getElementById('menuImg').src = "./img/rinat.jpg";
     }
-    if (user == 'daniel-johannsen') {
+    if (currentUser == 'daniel-johannsen') {
         document.getElementById('menuImg').src = "./img/daniel.jpg";
     }
-    user = [];
 };
 
 /**
