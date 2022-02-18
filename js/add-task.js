@@ -62,12 +62,16 @@ function setNewTask() {
     clearInput();
 }
 
+/**
+ * This function is used to generate a JSON for assignedTo: , The return depends of the employee is selected or not.
+ * @returns JSON with Placeholder values or the values of the selected employee.
+ */
 function checkEmployeeChoosen() {
     if (employeeChoosen == false) {
         return {
             'img': './img/faviconblau.ico',
             'name': 'no employee selected',
-            'email': 'no employee elected',
+            'email': 'no employee selected',
             'color': 'green'
         }
     };
