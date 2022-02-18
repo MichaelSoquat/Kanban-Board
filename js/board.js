@@ -1,24 +1,3 @@
-/* let todos = [{
-    'id': 0,
-    'title': 'Programmieren',
-    'category': 'Studium',
-    'status': 'toDo'
-}, {
-    'id': 1,
-    'title': 'Lesen',
-    'category': 'Studium',
-    'status': 'doToday'
-}, {
-    'id': 2,
-    'title': 'Aufräumen',
-    'category': 'Home',
-    'status': 'testing'
-}, {
-    'id': 3,
-    'title': 'Kochen',
-    'category': 'Home',
-    'status': 'done'
-}]; */
 let todoTasks = [];
 let doToday = [];
 let testing = [];
@@ -40,18 +19,6 @@ async function loadTasksForBoard() {
 }
 
 
-/**
- * This function is used to check if status is 'todo'.
- */
-/* function checkIfStatusIsTodo() {
-    if (tasks.length != 0) {
-        todoTasks = tasks.filter((task) => task.status == 'todo');
-        console.log(todoTasks);
-    } else {
-        console.log('There are no TODO-Tasks');
-    }
-} */
-
 
 function updateHTML() {
     filterGenerateTodoHTML();
@@ -69,26 +36,7 @@ function filterGenerateTodoHTML() {
         element["boardId"] = boardTasks.indexOf(element);
         document.getElementById('todo').innerHTML += generateTasksHTML(element);
     }
-    /*     for (let index = 0; index < tasks.length; index++) {
-            checkBoardStatus(index, 'todo');
-            
-        }  */
-}
 
-/* function checkAgainBoardStatus(status) {
-    if (tasks[zero]['status'] == status) {
-        tasks.shift();
-        console.log('Spliced task after MissingCheck is:' + tasks.length)
-    } 
-}
-
-function checkBoardStatus(index, status) {
-    if (tasks[index]['status'] == status) {
-        tasks.splice(index,1);
-        console.log('Spliced task after BoardStatuschek is:' + tasks.length)
-    }
-    checkAgainBoardStatus(status); 
-}  */
 
 function filterGenerateDoTodayHTML() {
     doToday = boardTasks.filter(t => t['status'] == 'doToday');
@@ -156,9 +104,6 @@ async function moveTo(status) {
     updateHTML();
 }
 
-function saveBoardID() {
-
-}
 
 
 function highlight(id) {
