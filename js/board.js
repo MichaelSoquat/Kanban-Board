@@ -2,7 +2,6 @@ let todoTasks = [];
 let doToday = [];
 let testing = [];
 let done = [];
-let zero = 0;
 
 let boardTasks = [];
 
