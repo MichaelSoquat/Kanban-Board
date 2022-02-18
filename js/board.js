@@ -3,31 +3,52 @@ let doToday = [];
 let testing = [];
 let done = [];
 let currentDraggedElement;
+let isBoardEmpty = false;
 
 
+function checkIfBoardIsEmpty() {
+    if (todoTasks.length == 0 && doToday.length == 0 && testing.length == 0 && done.length == 0) {
+        isBoardEmpty = true;
+    }
+    else {
+        isBoardEmpty = false;
+    }
+}
 
 
 async function loadTasksForBoard() {
-    includeHTML();
-    await loadTasks();
     loadUser();
     changeImg();
-    updateHTML();
+    includeHTML();
+    await loadTasks();
+    filterTasks();
+    checkIfBoardIsEmpty();
+    renderBoardHTML();
 }
 
 
-
-function updateHTML() {
-    filterGenerateTodoHTML();
-    filterGenerateDoTodayHTML();
-    filterGenerateTestingHTML();
-    filterGenerateDoneHTML();
+function renderBoardHTML() {
+    if (isBoardEmpty == true) {
+        document.getElementById('todo').innerHTML = helpTextForEmptyBoard;
+        console.log('board is empty');
+    } else {
+        renderToDos();
+        renderDoToday();
+        renderTesting();
+        renderDone();
+    }
 }
 
-
-function filterGenerateTodoHTML() {
+function filterTasks() {
     todoTasks = tasks.filter(t => t['status'] == 'todo');
+    doToday = tasks.filter(t => t['status'] == 'doToday');
+    testing = tasks.filter(t => t['status'] == 'testing');
+    done = tasks.filter(t => t['status'] == 'done');
+}
+
+function renderToDos() {
     document.getElementById('todo').innerHTML = '';
+
     for (let index = 0; index < todoTasks.length; index++) {
         let element = todoTasks[index];
         element["boardId"] = tasks.indexOf(element);
@@ -36,9 +57,9 @@ function filterGenerateTodoHTML() {
 }
 
 
-function filterGenerateDoTodayHTML() {
-    doToday = tasks.filter(t => t['status'] == 'doToday');
+function renderDoToday() {
     document.getElementById('doToday').innerHTML = '';
+
     for (let index = 0; index < doToday.length; index++) {
         let element = doToday[index];
         element["boardId"] = tasks.indexOf(element);
@@ -47,9 +68,9 @@ function filterGenerateDoTodayHTML() {
 }
 
 
-function filterGenerateTestingHTML() {
-    testing = tasks.filter(t => t['status'] == 'testing');
+function renderTesting() {
     document.getElementById('testing').innerHTML = '';
+
     for (let index = 0; index < testing.length; index++) {
         let element = testing[index];
         element["boardId"] = tasks.indexOf(element);
@@ -58,9 +79,9 @@ function filterGenerateTestingHTML() {
 }
 
 
-function filterGenerateDoneHTML() {
-    done = tasks.filter(t => t['status'] == 'done');
+function renderDone() {
     document.getElementById('done').innerHTML = '';
+
     for (let index = 0; index < done.length; index++) {
         let element = done[index];
         element["boardId"] = tasks.indexOf(element);
@@ -78,6 +99,10 @@ function generateTasksHTML(element) {
         <p>${element['category']}</p>
     </div>`;
 }
+
+
+
+let helpTextForEmptyBoard = `<p>At the moment there is no task to show. Please add a new task in <a href="add-task.html">Add Task</a>. If you need help, then visit our <a href="help.html">Help-Section</a> .</p>`;
 
 
 function startDragging(id) {
@@ -98,7 +123,8 @@ function allowDrop(ev) {
 async function moveTo(status) {
     tasks[currentDraggedElement]['status'] = status; // z.B Todo mit id 1: das Feld Status ändert sich zu einem anderen status.
     await saveTasks();
-    updateHTML();
+    filterTasks();
+    renderBoardHTML();
 }
 
 
