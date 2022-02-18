@@ -3,6 +3,7 @@ let employeeImg;
 let employeeName;
 let employeeEmail;
 let employeeColor;
+let employeeChoosen = false;
 
 /**
  * This function is used to set the data from the selecteted employee into the variables.
@@ -12,7 +13,7 @@ let employeeColor;
  * @param {string} email - This is the email adress of the employee.
  */
 function setEmployee(img, name, email, color) {
-
+    employeeChoosen = true;
     employeeImg = img;
     employeeName = name;
     employeeEmail = email;
@@ -53,17 +54,31 @@ function setNewTask() {
         'urgency': urgency.value,
         'description': description.value,
         'id': new Date().getTime(),
-        'assignedTo': {
+        'assignedTo': checkEmployeeChoosen()
+    };
+    tasks.push(newTask);
+    saveTasks();
+    console.log(tasks)
+    clearInput();
+}
+
+function checkEmployeeChoosen() {
+    if (employeeChoosen == false) {
+        return {
+            'img': './img/faviconblau.ico',
+            'name': 'no employee selected',
+            'email': 'no employee elected',
+            'color': 'green'
+        }
+    };
+    if (employeeChoosen == true) {
+        return {
             'img': employeeImg,
             'name': employeeName,
             'email': employeeEmail,
             'color': employeeColor
         }
     };
-    tasks.push(newTask);
-    saveTasks();
-    console.log(tasks)
-    clearInput();
 }
 
 /**
