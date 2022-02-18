@@ -25,11 +25,17 @@ let testing = [];
 let done = [];
 let zero = 0;
 
+let boardTasks = [];
+
 
 let currentDraggedElement;
 
 async function loadTasksForBoard() {
+    includeHTML();
     await loadTasks();
+    boardTasks = tasks;
+    loadUser();
+    changeImg();
     updateHTML();
 }
 
@@ -56,17 +62,17 @@ function updateHTML() {
 
 
 function filterGenerateTodoHTML() {
-    todoTasks = tasks.filter(t => t['status'] == 'todo');
-    document.getElementById('toDo').innerHTML = '';
+    todoTasks = boardTasks.filter(t => t['status'] == 'todo');
+    document.getElementById('todo').innerHTML = '';
     for (let index = 0; index < todoTasks.length; index++) {
         let element = todoTasks[index];
-        element["boardId"] = index;
-        document.getElementById('toDo').innerHTML += generateTasksHTML(element);
+        element["boardId"] = boardTasks.indexOf(element);
+        document.getElementById('todo').innerHTML += generateTasksHTML(element);
     }
-/*     for (let index = 0; index < tasks.length; index++) {
-        checkBoardStatus(index, 'todo');
-        
-    }  */
+    /*     for (let index = 0; index < tasks.length; index++) {
+            checkBoardStatus(index, 'todo');
+            
+        }  */
 }
 
 /* function checkAgainBoardStatus(status) {
@@ -85,30 +91,33 @@ function checkBoardStatus(index, status) {
 }  */
 
 function filterGenerateDoTodayHTML() {
-    doToday = tasks.filter(t => t['status'] == 'doToday');
+    doToday = boardTasks.filter(t => t['status'] == 'doToday');
     document.getElementById('doToday').innerHTML = '';
     for (let index = 0; index < doToday.length; index++) {
         let element = doToday[index];
+        element["boardId"] = boardTasks.indexOf(element);
         document.getElementById('doToday').innerHTML += generateTasksHTML(element);
     }
 }
 
 
 function filterGenerateTestingHTML() {
-    testing = tasks.filter(t => t['status'] == 'testing');
+    testing = boardTasks.filter(t => t['status'] == 'testing');
     document.getElementById('testing').innerHTML = '';
     for (let index = 0; index < testing.length; index++) {
         let element = testing[index];
+        element["boardId"] = boardTasks.indexOf(element);
         document.getElementById('testing').innerHTML += generateTasksHTML(element);
     }
 }
 
 
 function filterGenerateDoneHTML() {
-    done = tasks.filter(t => t['status'] == 'done');
+    done = boardTasks.filter(t => t['status'] == 'done');
     document.getElementById('done').innerHTML = '';
     for (let index = 0; index < done.length; index++) {
         let element = done[index];
+        element["boardId"] = boardTasks.indexOf(element);
         document.getElementById('done').innerHTML += generateTasksHTML(element);
     }
 }
@@ -120,6 +129,7 @@ function generateTasksHTML(element) {
         <h3>${element['title']}</h3> 
         <p>${element['description']}</p>
         <img class="user-img" src="${element.assignedTo.img}">
+        <p>${element['category']}</p>
     </div>`;
 }
 
@@ -139,13 +149,15 @@ function allowDrop(ev) {
 }
 
 
-function moveTo(status) {
-    todoTasks[currentDraggedElement]['status'] = status; // z.B Todo mit id 1: das Feld Status ändert sich zu einem anderen status.
+async function moveTo(status) {
+    tasks[currentDraggedElement]['status'] = status; // z.B Todo mit id 1: das Feld Status ändert sich zu einem anderen status.
+    await saveTasks();
+    boardTasks = tasks;
     updateHTML();
 }
 
 function saveBoardID() {
-    
+
 }
 
 
