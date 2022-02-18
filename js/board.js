@@ -102,7 +102,7 @@ function generateTasksHTML(element) {
 
 
 
-let helpTextForEmptyBoard = `<p>At the moment there is no task to show. Please add a new task in <a href="add-task.html">Add Task</a>. If you need help, then visit our <a href="help.html">Help-Section</a> .</p>`;
+let helpTextForEmptyBoard = `<p>At the moment there are no tasks in board. Please assign a new task in <a href="backlog.html">Backlog</a>. If you need help, then visit our <a href="help.html">Help-Section</a> .</p>`;
 
 
 function startDragging(id) {
