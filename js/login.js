@@ -12,7 +12,7 @@ let users = [{
     },
     {
         'username': 'test',
-        'password': 'test'
+        'password': 'gruppe-176'
     }
 ];
 
