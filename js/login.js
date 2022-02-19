@@ -9,6 +9,10 @@ let users = [{
     {
         'username': 'daniel-johannsen',
         'password': 'gruppe-176'
+    },
+    {
+        'username': 'test',
+        'password': 'test'
     }
 ];
 
