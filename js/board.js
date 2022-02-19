@@ -4,6 +4,7 @@ let testing = [];
 let done = [];
 let currentDraggedElement;
 let isBoardEmpty = true;
+let userColor;
 
 
 function checkIfBoardIsEmpty() {
@@ -51,6 +52,7 @@ function renderToDos() {
 
     for (let index = 0; index < todoTasks.length; index++) {
         let element = todoTasks[index];
+        userColor = todoTasks[index]['assignedTo']['color'];
         element["boardId"] = tasks.indexOf(element);
         document.getElementById('todo').innerHTML += generateTasksHTML(element);
     }
@@ -62,6 +64,7 @@ function renderDoToday() {
 
     for (let index = 0; index < doToday.length; index++) {
         let element = doToday[index];
+        userColor = doToday[index]['assignedTo']['color'];
         element["boardId"] = tasks.indexOf(element);
         document.getElementById('doToday').innerHTML += generateTasksHTML(element);
     }
@@ -73,6 +76,7 @@ function renderTesting() {
 
     for (let index = 0; index < testing.length; index++) {
         let element = testing[index];
+        userColor = testing[index]['assignedTo']['color'];
         element["boardId"] = tasks.indexOf(element);
         document.getElementById('testing').innerHTML += generateTasksHTML(element);
     }
@@ -84,6 +88,7 @@ function renderDone() {
 
     for (let index = 0; index < done.length; index++) {
         let element = done[index];
+        userColor = done[index]['assignedTo']['color'];
         element["boardId"] = tasks.indexOf(element);
         document.getElementById('done').innerHTML += generateTasksHTML(element);
     }
@@ -92,7 +97,7 @@ function renderDone() {
 
 function generateTasksHTML(element) {
     return `<!--html--> 
-    <div draggable="true" ondragstart="startDragging(${element['boardId']})" class="tasks" style ="border-color: ${element['assignedTo']['color']}">
+    <div draggable="true" ondragstart="startDragging(${element['boardId']})" class="tasks" style ="border-color: ${userColor}">
         <h3>${element['title']}</h3> 
         <p>${element['description']}</p>
         <div class="task-details">
