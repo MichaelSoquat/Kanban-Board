@@ -54,3 +54,28 @@
     justify-content: center;
     padding: 5px 10px 0 0;
 }
+
+@media(max-width: 664px) {
+    .tasks-container{
+        min-height: 120px;
+        max-height: 120px;
+    }
+
+    .column {
+        margin-bottom: 15px;
+    }
+    
+    h3 {
+        margin: 0;
+    }
+
+    h1 {
+        margin: 5px;
+    }
+    p {
+        margin: 0;
+    }
+    .user-img {
+        height: 35px;
+        width: 35px;
+}
