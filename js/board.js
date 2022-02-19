@@ -3,7 +3,7 @@ let doToday = [];
 let testing = [];
 let done = [];
 let currentDraggedElement;
-let isBoardEmpty = false;
+let isBoardEmpty = true;
 
 
 function checkIfBoardIsEmpty() {
@@ -92,11 +92,13 @@ function renderDone() {
 
 function generateTasksHTML(element) {
     return `<!--html--> 
-    <div draggable="true" ondragstart="startDragging(${element['boardId']})" class="tasks">
+    <div draggable="true" ondragstart="startDragging(${element['boardId']})" class="tasks" style ="border-color: ${element['assignedTo']['color']}">
         <h3>${element['title']}</h3> 
         <p>${element['description']}</p>
-        <img class="user-img" src="${element.assignedTo.img}">
-        <p>${element['category']}</p>
+        <div class="task-details">
+            <img class="user-img" src="${element.assignedTo.img}">
+            <p>${element['category']}</p>
+        </div>
     </div>`;
 }
 
