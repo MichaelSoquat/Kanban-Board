@@ -151,6 +151,17 @@ textarea:focus {
     background-color: rgb(46, 68, 179);
 }
 
+.link-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#linkToBacklog {
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
 @media(max-width: 1000px) {
     .form {
         flex-direction: column;
@@ -172,6 +183,15 @@ textarea:focus {
     }
     .form-btn-section {
         flex-direction: column-reverse;
+    }
+    .cancel-btn {
+        margin-top: 1rem;
+    }
+    .create-task-btn {
+        margin-left: 0;
+    }
+    .choose-employee {
+        left: 25%;
     }
 }
 

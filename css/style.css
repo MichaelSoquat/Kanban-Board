@@ -194,6 +194,9 @@ nav {
     .dropbtn {
         display: block;
         width: 50px;
+        position: absolute;
+        top: 2rem rem;
+        right: 2rem;
     }
     /* Dropdown Content (Hidden by Default) */
     .dropdown-content {

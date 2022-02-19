@@ -44,7 +44,6 @@ function setNewTask() {
     let description = document.getElementById('descriptionInput');
     let date = document.getElementById('dateInput');
     let urgency = document.getElementById('urgencyInput');
-
     let status = 'backlog';
     let newTask = {
         'status': status,
@@ -60,6 +59,7 @@ function setNewTask() {
     saveTasks();
     console.log(tasks)
     clearInput();
+    document.getElementById('linkToBacklog').classList.remove('d-none');
 }
 
 /**
