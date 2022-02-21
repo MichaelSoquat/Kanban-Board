@@ -30,13 +30,13 @@
             <h1>Add Task</h1>
             <p>Learning Management System Project</p>
 
-            <form class="form" onsubmit="setNewTask()">
-                <div class="form">
-                    <div class="form-section-left">
-                        <label>TITLE</label>
-                        <input required type="text" id="titleInput">
-                        <label>CATEGORY</label>
-                        <select id="categoryInput">
+            <!-- <form class="form" onsubmit="setNewTask()"> -->
+            <div class="form">
+                <div class="form-section-left">
+                    <label>TITLE</label>
+                    <input required type="text" id="titleInput">
+                    <label>CATEGORY</label>
+                    <select id="categoryInput">
                         <option value=""></option>
                         <option value="Management">Management</option>
                         <option value="Marketing">Marketing</option>
@@ -46,52 +46,52 @@
                         <option value="Logistics">Logistics</option>
                         <option value="Sales">Sales</option>
                     </select>
-                        <label for="description">DESCRIPTION</label>
-                        <textarea required name="description" id="descriptionInput" cols="30" rows="7"></textarea>
-                    </div>
-                    <div class="form-section-right">
-                        <label>DATE</label>
-                        <input required type="date" placeholder="dd-mm-yyyy" id="dateInput">
-                        <label>URGENCY</label>
-                        <select id="urgencyInput">
+                    <label for="description">DESCRIPTION</label>
+                    <textarea required name="description" id="descriptionInput" cols="30" rows="7"></textarea>
+                </div>
+                <div class="form-section-right">
+                    <label>DATE</label>
+                    <input required type="date" placeholder="dd-mm-yyyy" id="dateInput">
+                    <label>URGENCY</label>
+                    <select id="urgencyInput">
                         <option value=""></option>
                         <option value="High">High</option>
                         <option value="Medium">Medium</option>
                         <option value="Low">Low</option>
                     </select>
 
-                        <label>ASSIGNED TO</label>
-                        <div class="employees-section">
-                            <img src="./img/faviconblau.ico" id="choosenEmployee" class="employees-section-img">
-                            <img src="./icons/icon plus.png" class="employees-section-plus-btn" onclick="showEmpleyees()">
+                    <label>ASSIGNED TO</label>
+                    <div class="employees-section">
+                        <img src="./img/faviconblau.ico" id="choosenEmployee" class="employees-section-img">
+                        <img src="./icons/icon plus.png" class="employees-section-plus-btn" onclick="showEmpleyees()">
 
-                            <div class="choose-employee d-none" id="chooseEmployee">
-                                <div class="employee" onclick="setEmployee('./img/daniel.jpg', 'Daniel Johannsen', 'daniel-johannsen@web.de','green')">
-                                    <img src="./img/daniel.jpg" class="employees-section-img">
-                                    <div class="employee-name">Daniel Johannsen</div>
-                                </div>
-                                <div class="employee" onclick="setEmployee('./img/Soquat.png', 'Michael Soquat', 'michael.soquat@gmx.de', 'orange')">
-                                    <img src="./img/Soquat.png" class="employees-section-img">
-                                    <div class="employee-name">Michael Soquat</div>
-                                </div>
-                                <div class="employee" onclick="setEmployee('./img/rinat.jpg', 'Rinat Madreiter', 'rinat.madreiter@gmx.de', 'blue')">
-                                    <img src="./img/rinat.jpg" class="employees-section-img">
-                                    <div class="employee-name">Rinat Madreiter</div>
-                                </div>
+                        <div class="choose-employee d-none" id="chooseEmployee">
+                            <div class="employee" onclick="setEmployee('./img/daniel.jpg', 'Daniel Johannsen', 'daniel-johannsen@web.de','green')">
+                                <img src="./img/daniel.jpg" class="employees-section-img">
+                                <div class="employee-name">Daniel Johannsen</div>
                             </div>
-
-                        </div>
-                        <div class="form-btn-section">
-                            <div><button class="cancel-btn" onclick="clearInput()">CANCEL</button></div>
-                            <div><button type="submit" class="create-task-btn" onclick="setNewTask()">CREATE TASK</button>
+                            <div class="employee" onclick="setEmployee('./img/Soquat.png', 'Michael Soquat', 'michael.soquat@gmx.de', 'orange')">
+                                <img src="./img/Soquat.png" class="employees-section-img">
+                                <div class="employee-name">Michael Soquat</div>
+                            </div>
+                            <div class="employee" onclick="setEmployee('./img/rinat.jpg', 'Rinat Madreiter', 'rinat.madreiter@gmx.de', 'blue')">
+                                <img src="./img/rinat.jpg" class="employees-section-img">
+                                <div class="employee-name">Rinat Madreiter</div>
                             </div>
                         </div>
-                        <div class="link-area">
-                            <a href="./backlog.html" class="create-task-btn d-none" id="linkToBacklog">TO BACKLOG</a>
+
+                    </div>
+                    <div class="form-btn-section">
+                        <div><button class="cancel-btn" onclick="clearInput()">CANCEL</button></div>
+                        <div><button type="submit" class="create-task-btn" onclick="setNewTask()">CREATE TASK</button>
                         </div>
                     </div>
+                    <div class="link-area">
+                        <a href="./backlog.html" class="create-task-btn d-none" id="linkToBacklog">TO BACKLOG</a>
+                    </div>
                 </div>
-            </form>
+            </div>
+            <!-- </form> -->
         </div>
     </div>
 
