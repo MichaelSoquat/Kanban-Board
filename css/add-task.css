@@ -44,11 +44,25 @@ input {
     padding-left: 1rem;
 }
 
+select {
+    width: 103.2%;
+    height: 55px;
+    background-color: white;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 5px;
+    font-size: 1.2rem;
+    padding-left: 1rem;
+}
+
 #dateInput {
     height: 52px;
 }
 
 input:focus {
+    outline: none;
+}
+
+select:focus {
     outline: none;
 }
 
@@ -179,7 +193,10 @@ textarea:focus {
         width: 80%;
     }
     input {
-        width: 90%;
+        width: 94%;
+    }
+    select {
+        width: 100%;
     }
     .form-btn-section {
         flex-direction: column-reverse;
